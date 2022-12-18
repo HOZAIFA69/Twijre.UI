@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Edit Customer</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+            <form #form="ngForm" (ngSubmit)="submit(form)">
+                <div class="mb-3 row">
+                    <label for="name" class="col-sm-2 col-form-label">name</label>
+                    <div class="col-sm-10">
+                        <input [(ngModel)]="customer.id" name="id" type="text" readonly class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="name" class="col-sm-2 col-form-label">name</label>
+                    <div class="col-sm-10">
+                        <input [(ngModel)]="customer.name" name="name" type="text" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="phone" class="col-sm-2 col-form-label">phone</label>
+                    <div class="col-sm-10">
+                        <input [(ngModel)]="customer.phone" name="phone" type="text" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3 row">
+                    <div class="col-sm-6 ">
+                        <a routerLink="" class="btn  btn-outline-primary">Back</a>|
+                        <input type="submit" class="btn btn-primary" value="save">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
