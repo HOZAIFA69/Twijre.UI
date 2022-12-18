@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-success">
+
+      <div class="row">
+        <div class="col-md-10">
+          <h2>Customer List</h2>
+        </div>
+        <div class="col-md-2">
+          <a routerLink="customerForm" class="btn btn-outline-dark text-light">Add Customer</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>
+              <a routerLink="customerView/{{customer.id}}" class="btn btn-info">View</a> |
+              <a routerLink="customerEdit/{{customer.id}}" class="btn btn-primary">Edit</a> |
+              <button type="button" (click)="deleteCustomer(customer.id)" class="btn btn-danger">Delete</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

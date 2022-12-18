@@ -1,0 +1,86 @@
+<div class="container">
+  <br>
+  <div class="card">
+    <div class="card-header bg-info">
+      <h2>Customer View</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+
+      <table class="table table-bordered table-striped ">
+        <tbody>
+          <tr>
+            <td> <label for="staticEmail" class="col-sm-3 col-form-label">Id</label>
+            </td>
+            <td>
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{customer.id}}">
+            </td>
+          </tr>
+          <tr>
+            <td> <label for="staticEmail" class="col-sm-3 col-form-label">Name</label>
+            </td>
+            <td>
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{customer.name}}">
+            </td>
+          </tr>
+          <tr>
+            <td> <label for="staticEmail" class="col-sm-3 col-form-label">Phone</label>
+            </td>
+            <td>
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{customer.phone}}">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <a routerLink="" class="btn btn-primary">Back</a> -->
+    </div>
+  </div>
+
+
+  <br>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-10">
+          <h2>Invoices</h2>
+        </div>
+        <div class="col-md-2">
+          <a routerLink="/invoiceForm/{{customer.id}}" class="btn btn-primary">Add Invoice</a>
+        </div>
+      </div>
+
+
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>InvoiceValue</th>
+              <th>Date</th>
+              <th>State</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+
+            <tr *ngFor="let invoice of customer.invoices">
+              <td>{{ invoice.id }}</td>
+              <td>{{ invoice.invoiceValue }}</td>
+              <td>{{ invoice.invoiceDate }}</td>
+              <td>{{ invoice.state }}</td>
+
+              <td>
+                <a routerLink="customerEdit/{{invoice.id}}" class="btn btn-primary">Edit</a> |
+                <button type="button" (click)="deleteInvoice(invoice.id)" class="btn btn-danger">Delete</button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
