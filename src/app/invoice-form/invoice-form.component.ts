@@ -26,6 +26,7 @@ export class InvoiceFormComponent {
 
   submit(form: NgForm) {
     debugger;
+    form.value.state = parseInt(form.value.state)
     console.log(form.value);
     this.invoiceService.create(form.value).subscribe((data) => {
       console.log(data);

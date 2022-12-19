@@ -33,6 +33,8 @@ export class CustomerViewComponent {
   }
   deleteInvoice(id:number){
     this.invoiceService.delete(id).subscribe((data)=>{
+      this.customer.invoices.filter(i => i.id !== id)
+
       console.log(data);
     });
   }
